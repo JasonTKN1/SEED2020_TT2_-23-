@@ -29,18 +29,20 @@ const httpOptions1 = {
 @Injectable({
   providedIn: 'root'
 })
-export class balance {
+export class BalanceService {
 
   baseUrl: string = "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020"
 
 	constructor(private httpClient: HttpClient) { }
 
-	login(username: string, password: string): Observable<any> {
+	viewAccount(custID: number): Observable<any> {
+        console.log(custID)
 		let stuff = {
-            "custID": 1
-		};
+            "custID": custID
+        };
+
 		return this.httpClient.post<any>(this.baseUrl + "/accounts/view",
-        stuff,
+            stuff,
 			httpOptions2).pipe
 			(
 				catchError(this.handleError)
