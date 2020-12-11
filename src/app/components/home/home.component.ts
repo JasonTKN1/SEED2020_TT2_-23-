@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/class/customer';
+
+import { CustomerService } from '../../service/customer.service';
+import { SessionService } from '../../service/session.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +11,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  customer: Customer;
+
+  constructor(public customerService: CustomerService,
+    public sessionService: SessionService) { 
+      this.customer = new Customer();
+    }
 
   ngOnInit(): void {
+    
+    this.customer = JSON.parse(this.sessionService.getCustomer());
+
+    console.log("home page " + JSON.stringify(this.customer.firstName));
+    
   }
 
 }
