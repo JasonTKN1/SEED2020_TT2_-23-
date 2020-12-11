@@ -4,8 +4,6 @@ import { CustomerService } from '../../service/customer.service';
 import { SessionService } from '../../service/session.service';
 import { BalanceService } from '../../service/balance.service';
 
-import { BrowserModule } from '@angular/platform-browser'
-
 @Component({
   selector: 'app-home',
   templateUrl: './balance.component.html',
@@ -14,7 +12,7 @@ import { BrowserModule } from '@angular/platform-browser'
 export class BalanceComponent implements OnInit {
 
     customer: Customer;
-    accountDetails: {[key: string]: any} = {};
+    accountDetails: any = null;
     constructor(
         public sessionService: SessionService,
         public customerService: CustomerService,
