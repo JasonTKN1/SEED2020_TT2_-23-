@@ -30,7 +30,7 @@ export class NavbarComponent implements OnInit {
     //console.log(this.sessionService.getAccessToken());
     this.sessionService.setAccessToken("");
 
-    this.router.navigate(["/ui/login"]);
+    this.router.navigate(["/login"]);
   }
 
 }
