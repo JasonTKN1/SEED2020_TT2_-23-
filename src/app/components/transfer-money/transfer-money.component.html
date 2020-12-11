@@ -1,8 +1,9 @@
 <div class="site-wrapper">
     <section class="transfer_form">
+        <app-navbar></app-navbar>
         <div class="container">
             <div class="row">
-                <div class="col-md-12" style="margin-top: 10%">
+                <div class="col-md-12">
                     <h4>Enter transaction details</h4>
                     <form class="transferForm" [formGroup]="transferForm" (ngSubmit)="transfer_money()">
                         <div class="form-group">
@@ -22,14 +23,14 @@
                                 required="true" maxlength="64" minlength="0">
                         </div>
                         <div class="form-group">
-                                <label>E-Gift</label><br>
-                                <input type="checkbox" id="egift_true" formControlName="egift_true"> True<br>
-                                <input type="checkbox" id="egift_false" formControlName="egift_false"> False
+                            <label>E-Gift</label><br>
+                            <input type="checkbox" id="egift_true" formControlName="egift_true"> True<br>
+                            <input type="checkbox" id="egift_false" formControlName="egift_false"> False
                         </div>
                         <div class="form-group">
-                                <label>Message</label>
-                                <input type="text" id="message" formControlName="message" class="form-control"
-                                    required="true" maxlength="64" minlength="0">
+                            <label>Message</label>
+                            <input type="text" id="message" formControlName="message" class="form-control"
+                                required="true" maxlength="64" minlength="0">
                         </div>
                         <label class="error">{{errorMessage}}</label>
                         <button type="submit" class="btn btn-md btn-danger">Transfer</button>
