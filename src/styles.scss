@@ -2,3 +2,20 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+
+.title-field {
+    color: red;
+    padding: 70px 0;
+  }
+
+tr:nth-child(even) {background: rgb(204, 191, 191)}
+tr:nth-child(odd) {background: #FFF}
+
+ th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    
+  }
+
+  tr:hover {background-color: #ddd;}
