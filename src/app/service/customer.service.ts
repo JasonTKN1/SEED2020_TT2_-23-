@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 
 const httpOptions = {
 	headers: new HttpHeaders({
@@ -47,6 +48,24 @@ export class CustomerService {
 				catchError(this.handleError)
 			);
   }
+
+  transfer(username: string, payeeID: string, dateTime: Date, amount: BigInteger, category: string, egift: Boolean, message: string): Observable<any> {
+	let credentials = {
+		"custID": username,
+		"payeeID": payeeID,
+		"dateTime" : dateTime,
+		"amount" : amount,
+		"expensesCat" : category,
+		"eGift" : egift,
+		"message" : message,
+	};
+	return this.httpClient.post<any>(this.baseUrl + "/add",
+		credentials,
+		httpOptions2).pipe
+		(
+			catchError(this.handleError)
+		);
+}
   
   private handleError(error: HttpErrorResponse) {
 		let errorMessage: string = "";
