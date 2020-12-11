@@ -19,30 +19,34 @@ export class TransactionHistoryComponent implements OnInit {
   constructor(public transactionService: TransactionViewService,
     public sessionService: SessionService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) { 
+      this.customer = new Customer();
+    }
 
   ngOnInit(): void {
   }
 
   view(): void {
-  //Retrieve value from 
-  this.customer = JSON.parse(this.sessionService.getCustomer());
+    //Retrieve value from 
+    this.customer = JSON.parse(this.sessionService.getCustomer());
+    console.log("customer Id" + this.customer.custId);
+
 
     this.transactionService.showTransactionHistory(this.customer.custId).subscribe(
       response => {
         console.log("response " + JSON.stringify(response));
-        if (response != null)
-        {
+        if (response != null) {
           this.transactionDetails.amount = response.amount;
           this.transactionDetails.custID = response.custID;
           this.transactionDetails.dateTime = response.dateTime;
-          this.transactionDetails.eGift= response.eGift;
+          this.transactionDetails.eGift = response.eGift;
           this.transactionDetails.expensesCat = response.expensesCat;
           this.transactionDetails.message = response.message;
           this.transactionDetails.payeeID = response.payeeID;
         }
-    },
+      },
       error => {
         this.errorMessage = error
-  })};
+      })
+  };
 }

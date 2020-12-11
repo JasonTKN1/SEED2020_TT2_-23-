@@ -12,9 +12,11 @@ const httpOptions = {
 };
 
 const httpOptions2 = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json',
-  'x-api-key': '2HxEcVeegd7YN72NJR9aU2tmRtq9rBNn5wXgNnTl'
- }),
+	headers: new HttpHeaders({
+		'Access-Control-Allow-Origin':'*',
+		'Content-Type': 'application/json',
+		'x-api-key': '2HxEcVeegd7YN72NJR9aU2tmRtq9rBNn5wXgNnTl'
+	}),
 	// responseType: 'text' as 'json'
 };
 
@@ -28,27 +30,29 @@ const httpOptions1 = {
 }
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 export class TransactionViewService {
 
-  constructor(private httpClient: HttpClient) { }
+	constructor(private httpClient: HttpClient) { }
 
-  baseUrl: string = "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020"
+	baseUrl: string = "https://u8fpqfk2d4.execute-api.ap-southeast-1.amazonaws.com/techtrek2020"
 
-  showTransactionHistory(custID: number): Observable<any> {
-		let parameters = {
+	showTransactionHistory(custID: number): Observable<any> {
+		console.log("service ID" + custID);
+		let credentials = {
 			"custID": custID
 		};
+		console.log("service param" + JSON.stringify(credentials));
 		return this.httpClient.post<any>(this.baseUrl + "/transaction/view",
-			parameters,
+			JSON.stringify(credentials),
 			httpOptions2).pipe
 			(
 				catchError(this.handleError)
 			);
-  }
-  
-  private handleError(error: HttpErrorResponse) {
+	}
+
+	private handleError(error: HttpErrorResponse) {
 		let errorMessage: string = "";
 
 		if (error.error instanceof ErrorEvent) {

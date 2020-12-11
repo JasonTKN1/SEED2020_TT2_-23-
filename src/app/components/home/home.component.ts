@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
     
     this.customer = JSON.parse(this.sessionService.getCustomer());
 
-    console.log("home page " + JSON.stringify(this.customer.firstName));
+    console.log("home page " + JSON.stringify(this.customer.custId));
     
   }
 
