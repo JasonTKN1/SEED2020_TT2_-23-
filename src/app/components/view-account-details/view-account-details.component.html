@@ -6,20 +6,40 @@
                     <app-navbar></app-navbar>
                     <h4 class="col-md-12">Welcome ! <span>{{customer.firstName}}</span><span>&nbsp;</span><span>{{customer.lastName}}</span></h4>
                     <br>
-                    <table style="border-collapse: collapse; width: 100%;" >
+                    <table style="border-collapse: collapse; width: 100%; height: 125px;" border="1">
                         <tbody>
-                        <tr>
-                        <td> <p class="col-md-12"><span style="font-weight:bold;">NRIC: </span><span>{{customer.nric}}</span></p></td>
+                        <tr style="height: 35px;">
+                        <td style="width: 18.466%; height: 18px;">
+                        <div><span style="font-weight: bold;">NRIC: </span></div>
+                        </td>
+                        <td style="width: 81.534%; height: 18px;">
+                        <div>
+                        <div>{{customer.nric}}</div>
+                        </div>
+                        </td>
                         </tr>
-                        <tr>
-                        <td>  <p class="col-md-12"><span style="font-weight:bold;">Gender: </span> <span>{{customer.gender}}</span></p></td></tr>
-                        <tr>  <td><p class="col-md-12"><span style="font-weight:bold;">Age: </span><span>{{customer.age}}</span></p></td></tr>
-                        <tr>      <td>   <p class="col-md-12"><span style="font-weight:bold;"> Phone Number: </span> <span>{{customer.phoneNumber}}</span></p></td> </tr>
-                              <tr>     <td> <p class="col-md-12"><span style="font-weight:bold;">Email: </span> <span>{{customer.email}}</span></p></td> </tr> 
-                                <tr>       <td> <p class="col-md-12"><span style="font-weight:bold;">Address: </span><span>{{customer.address}}</span></p></td></tr> 
-               
-            </tbody>
-            </table>
+                        <tr style="height: 18px;">
+                        <td style="width: 18.466%; height: 18px;"><span style="font-weight: bold;">Gender: </span></td>
+                        <td style="width: 81.534%; height: 18px;">{{customer.gender}}</td>
+                        </tr>
+                        <tr style="height: 18px;">
+                        <td style="width: 18.466%; height: 18px;"><span style="font-weight: bold;">Age:</span></td>
+                        <td style="width: 81.534%; height: 18px;">{{customer.age}}</td>
+                        </tr>
+                        <tr style="height: 18px;">
+                        <td style="width: 18.466%; height: 18px;"><span style="font-weight: bold;">Phone Number:</span></td>
+                        <td style="width: 81.534%; height: 18px;">{{customer.phoneNumber}}</td>
+                        </tr>
+                        <tr style="height: 18px;">
+                        <td style="width: 18.466%; height: 18px;"><span style="font-weight: bold;">Email:</span></td>
+                        <td style="width: 81.534%; height: 18px;">{{customer.email}}</td>
+                        </tr>
+                        <tr style="height: 18px;">
+                        <td style="width: 18.466%; height: 18px;"><span style="font-weight: bold;">Address: </span></td>
+                        <td style="width: 81.534%; height: 18px;">{{customer.address}}</td>
+                        </tr>
+                        </tbody>
+                        </table>
                 </div>
             </div>
         </div>
