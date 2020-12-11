@@ -14,6 +14,7 @@ export class TransactionHistoryComponent implements OnInit {
 
   transactionDetails: Transaction;
   customer: Customer;
+  errorMessage: string = '';
 
   constructor(public transactionService: TransactionViewService,
     public sessionService: SessionService,
@@ -40,6 +41,8 @@ export class TransactionHistoryComponent implements OnInit {
           this.transactionDetails.message = response.message;
           this.transactionDetails.payeeID = response.payeeID;
         }
-    })
-  }
+    },
+      error => {
+        this.errorMessage = error
+  })};
 }
