@@ -16,7 +16,7 @@
             <tr *ngFor="let row of testTransactions">
                 <td>${{row.amount}}</td>
                 <td>{{row.custID}}</td>
-                <td>{{row.dateTime | date:'yyyy-MM-dd hh:mm:yyyy'}}</td>
+                <td>{{row.dateTime | date:'yyyy-MM-dd hh:mm:ss'}}</td>
                 <td>{{row.eGift}}</td>
                 <td>{{row.expensesCat}}</td>
                 <td>{{row.message}}</td>
