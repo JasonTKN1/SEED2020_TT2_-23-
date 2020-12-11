@@ -69,25 +69,34 @@ export class SessionService {
 		return sessionStorage.payeeID;
 	}
 
-	getAmount(): BigInteger {
+	getAmount(): number {
 		return sessionStorage.amount;
 	}
 
-	getExpCat(): string {
-		if (sessionStorage.shopping) {
+	getExpCatShop(): string {
+		if (sessionStorage.shop == "true") {
 			return "shopping";
-		}
-		else{
-			return sessionStorage.catOthers;
 		}
 	}
 
-	getEgift(): boolean {
-		if (sessionStorage.egift_true) {
-			return sessionStorage.egift_true;
+	getExpCatOthers(): string {
+		return sessionStorage.catOthers
+	}
+	getEgift_true(): boolean {
+		if (sessionStorage.egift_true == "true") {
+			return true;
 		}
-		else{
-			return sessionStorage.egift_false;
+		else {
+			return false;
+		}
+	}
+
+	getEgift_false(): boolean {
+		if (sessionStorage.egift_false == "true") {
+			return true;
+		}
+		else {
+			return false;
 		}
 	}
 

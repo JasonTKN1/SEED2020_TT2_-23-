@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { DatePipe } from '@angular/common';
 
 
 import { ActivatedRoute, Router } from "@angular/router";
@@ -13,8 +14,11 @@ import { CustomerService } from '../../service/customer.service';
 })
 export class TransferMoneyComponent implements OnInit {
   transferForm: any = null;
+  dateTime: any;
   errorMessage: string = '';
   transferError: boolean;
+  egift: boolean;
+  expCat: string;
 
   constructor(
     public sessionService: SessionService,
@@ -30,8 +34,10 @@ export class TransferMoneyComponent implements OnInit {
         Validators.minLength(0),
         Validators.maxLength(64)
       ]),
-      expCat: new FormControl(this.sessionService.getExpCat()),
-      e_gift: new FormControl(this.sessionService.getEgift()),
+      catOthers: new FormControl(this.sessionService.getExpCatOthers()),
+      egift_true: new FormControl(this.sessionService.getEgift_true()),
+      egift_false: new FormControl(this.sessionService.getEgift_false()),
+      shop: new FormControl(this.sessionService.getExpCatShop()),
       message: new FormControl(this.sessionService.getMessage()),
       amount: new FormControl(this.sessionService.getAmount()),
     }, { updateOn: 'blur' })
@@ -41,10 +47,30 @@ export class TransferMoneyComponent implements OnInit {
     console.log("submit form");
   
     console.log(this.transferForm.value.payeeID);
+    console.log(this.transferForm.value.message);
+    console.log(this.transferForm.value.amount);
+
+    this.dateTime = Date.now();
+    console.log(this.dateTime);
+
+    if (this.transferForm.value.egift_true){
+      this.egift = true;}
+    else if (this.transferForm.value.egift_false){
+      this.egift = false;}
     
-    console.log(this.customerService.users_information());
+    console.log(this.transferForm.value.e_gift);
+
+    if (this.transferForm.value.shop){
+    this.expCat = "shopping";
+  }
+    else{
+    this.expCat = this.transferForm.value.expCatOthers;
+    }
+    console.log(this.transferForm.value.expCat);
+
     //Retrieve value from form
-    //this.customerService.transfer(this.loginForm.value.username, this.loginForm.value.password).subscribe()
+    //this.customerService.transfer(this.sessionService.getUserId(), this.transferForm.value.payeeID, this.dateTime,
+     //this.transferForm.value.amount, this.transferForm.value.expCat, this.transferForm.value.e_gift, this.transferForm.value.message).subscribe()
     this.router.navigate(["/home"]);
   }
 }
