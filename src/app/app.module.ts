@@ -10,7 +10,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
+import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 import { ViewAccountDetailsComponent } from './components/view-account-details/view-account-details.component';
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { ViewAccountDetailsComponent } from './components/view-account-details/v
     LoginComponent,
     NavbarComponent,
     HomeComponent,
+    TransactionHistoryComponent,
     ViewAccountDetailsComponent
   ],
   imports: [
