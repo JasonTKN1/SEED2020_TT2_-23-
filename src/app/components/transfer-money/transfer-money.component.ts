@@ -18,7 +18,7 @@ export class TransferMoneyComponent implements OnInit {
   errorMessage: string = '';
   transferError: boolean;
   egift: boolean;
-  expCat: string;
+  //expCat: string = '';
 
   constructor(
     public sessionService: SessionService,
@@ -37,7 +37,7 @@ export class TransferMoneyComponent implements OnInit {
       catOthers: new FormControl(this.sessionService.getExpCatOthers()),
       egift_true: new FormControl(this.sessionService.getEgift_true()),
       egift_false: new FormControl(this.sessionService.getEgift_false()),
-      shop: new FormControl(this.sessionService.getExpCatShop()),
+      //shop: new FormControl(this.sessionService.getExpCatShop()),
       message: new FormControl(this.sessionService.getMessage()),
       amount: new FormControl(this.sessionService.getAmount()),
     }, { updateOn: 'blur' })
@@ -60,18 +60,29 @@ export class TransferMoneyComponent implements OnInit {
     
     console.log(this.transferForm.value.e_gift);
 
-    if (this.transferForm.value.shop){
-    this.expCat = "shopping";
-  }
-    else{
-    this.expCat = this.transferForm.value.expCatOthers;
-    }
+    //if (this.transferForm.value.shop){
+    //  this.expCat = "shopping";
+    //}
+    //else{
+    //  this.expCat = this.transferForm.value.catOthers;
+    //}
     console.log(this.transferForm.value.expCat);
 
     //Retrieve value from form
-    //this.customerService.transfer(this.sessionService.getUserId(), this.transferForm.value.payeeID, this.dateTime,
-     //this.transferForm.value.amount, this.transferForm.value.expCat, this.transferForm.value.e_gift, this.transferForm.value.message).subscribe()
-    this.router.navigate(["/home"]);
+    this.customerService.transfer(this.sessionService.getUserId(), this.transferForm.value.payeeID, this.dateTime,this.transferForm.value.amount, this.transferForm.value.catOthers, true, this.transferForm.value.message).subscribe(
+      response => {
+        console.log("response " + JSON.stringify(response));
+       if (response != null) {
+         this.router.navigate(["/home"]);
+       }
+       else {
+         this.transferError = true;
+       }
+     },
+     error => {
+       this.transferError = true;
+       this.errorMessage = error
+     });
   }
 }
 

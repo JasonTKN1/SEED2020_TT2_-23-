@@ -73,11 +73,11 @@ export class SessionService {
 		return sessionStorage.amount;
 	}
 
-	getExpCatShop(): string {
-		if (sessionStorage.shop == "true") {
-			return "shopping";
-		}
-	}
+	//getExpCatShop(): string {
+	//	if (sessionStorage.shop == "true") {
+	//		return "shopping";
+	//	}
+	//}
 
 	getExpCatOthers(): string {
 		return sessionStorage.catOthers
