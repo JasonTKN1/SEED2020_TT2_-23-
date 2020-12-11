@@ -1,5 +1,26 @@
-<p>transaction-history works!</p>
+<h2>Transaction History Records</h2>
 <!-- <app-transaction-history></app-transaction-history><app-transaction-history></app-transaction-history> -->
-<table mat-table [dataSource]="myDataArray"> </table>
+
+    <table>
+            <tr>
+                <th>Transfer Amount</th>
+                <th>User ID</th>
+                <th>Transaction Date</th>
+                <th>eGift Status</th>
+                <th>Expenses Category</th>
+                <th>Remarks</th>
+                <th>Payee ID</th>
+            </tr>
+            <tr *ngFor="let row of testTransactions">
+                <td>${{row.amount}}</td>
+                <td>{{row.custID}}</td>
+                <td>{{row.dateTime | date:'yyyy-MM-dd hh:mm:yyyy'}}</td>
+                <td>{{row.eGift}}</td>
+                <td>{{row.expensesCat}}</td>
+                <td>{{row.message}}</td>
+                <td>{{row.payeeID}}</td>
+            </tr>
+        </table>
+
 
 

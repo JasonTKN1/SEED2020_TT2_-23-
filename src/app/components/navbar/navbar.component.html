@@ -21,6 +21,10 @@
                     <li class="nav-item">
                         <a class="nav-link" *ngIf="isLogin" (click)="logout()">Logout</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" *ngIf="isLogin" (click)="viewTransactionHistory()">Transaction History</a>
+                    </li>
                        
                     <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
