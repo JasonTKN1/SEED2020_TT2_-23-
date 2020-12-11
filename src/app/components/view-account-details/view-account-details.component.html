@@ -4,14 +4,22 @@
             <div class="row">
                 <div class="col-md-12" style="margin-top: 10%">
                     <app-navbar></app-navbar>
-                    <h4>Welcome ! <span>{{customer.firstName}}</span><span>&nbsp;</span><span>{{customer.lastName}}</span></h4>
+                    <h4 class="col-md-12">Welcome ! <span>{{customer.firstName}}</span><span>&nbsp;</span><span>{{customer.lastName}}</span></h4>
                     <br>
-                    <p class="col-md-12"><span style="font-weight:bold;">NRIC: </span><span>{{customer.nric}}</span></p>
-                    <p class="col-md-12"><span style="font-weight:bold;">Gender: </span> <span>{{customer.gender}}</span></p>
-                    <p class="col-md-12"><span style="font-weight:bold;">Age: </span><span>{{customer.age}}</span></p>
-                    <p class="col-md-12"><span style="font-weight:bold;"> Phone Number: </span> <span>{{customer.phoneNumber}}</span></p>
-                    <p class="col-md-12"><span style="font-weight:bold;">Email: </span> <span>{{customer.email}}</span></p>
-                    <p class="col-md-12"><span style="font-weight:bold;">Address: </span><span>{{customer.address}}</span></p>
+                    <table style="border-collapse: collapse; width: 100%;">
+                        <tbody>
+                        <tr>
+                        <td> <p class="col-md-12"><span style="font-weight:bold;">NRIC: </span><span>{{customer.nric}}</span></p></td>
+                        </tr>
+                        <tr>
+                        <td>  <p class="col-md-12"><span style="font-weight:bold;">Gender: </span> <span>{{customer.gender}}</span></p></td></tr>
+                        <tr>  <td><p class="col-md-12"><span style="font-weight:bold;">Age: </span><span>{{customer.age}}</span></p></td></tr>
+                        <tr>      <td>   <p class="col-md-12"><span style="font-weight:bold;"> Phone Number: </span> <span>{{customer.phoneNumber}}</span></p></td> </tr>
+                              <tr>     <td> <p class="col-md-12"><span style="font-weight:bold;">Email: </span> <span>{{customer.email}}</span></p></td> </tr> 
+                                <tr>       <td> <p class="col-md-12"><span style="font-weight:bold;">Address: </span><span>{{customer.address}}</span></p></td></tr> 
+               
+            </tbody>
+            </table>
                 </div>
             </div>
         </div>
