@@ -64,4 +64,34 @@ export class SessionService {
 	setPassword(password: string): void {
 		sessionStorage.password = password;
 	}
+
+	getPayeeID(): string {
+		return sessionStorage.payeeID;
+	}
+
+	getAmount(): BigInteger {
+		return sessionStorage.amount;
+	}
+
+	getExpCat(): string {
+		if (sessionStorage.shopping) {
+			return "shopping";
+		}
+		else{
+			return sessionStorage.catOthers;
+		}
+	}
+
+	getEgift(): boolean {
+		if (sessionStorage.egift_true) {
+			return sessionStorage.egift_true;
+		}
+		else{
+			return sessionStorage.egift_false;
+		}
+	}
+
+	getMessage(): string {
+		return sessionStorage.message;
+	}
 }

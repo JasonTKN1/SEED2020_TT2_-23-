@@ -49,6 +49,14 @@ export class CustomerService {
 			);
   }
 
+  users_information(): Observable<any> {
+	return this.httpClient.post<any>(this.baseUrl + "/users",
+		httpOptions2).pipe
+		(
+			catchError(this.handleError)
+		);
+}
+
   transfer(username: string, payeeID: string, dateTime: Date, amount: BigInteger, category: string, egift: Boolean, message: string): Observable<any> {
 	let credentials = {
 		"custID": username,

@@ -25,6 +25,12 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+  transfer_page(): void {
+    this.sessionService.setAccessToken("");
+
+    this.router.navigate(["/transfer-money"]);
+  }
+
   logout(): void {
     this.sessionService.setIsLogin(false);
     //console.log(this.sessionService.getAccessToken());

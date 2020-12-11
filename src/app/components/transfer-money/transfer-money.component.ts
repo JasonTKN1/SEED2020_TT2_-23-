@@ -14,7 +14,7 @@ import { CustomerService } from '../../service/customer.service';
 export class TransferMoneyComponent implements OnInit {
   transferForm: any = null;
   errorMessage: string = '';
-  loginError: boolean;
+  transferError: boolean;
 
   constructor(
     public sessionService: SessionService,
@@ -25,28 +25,27 @@ export class TransferMoneyComponent implements OnInit {
 
   ngOnInit(): void {
     this.transferForm = new FormGroup({
-      password: new FormControl(this.sessionService.getPassword(), [
+      payeeID: new FormControl(this.sessionService.getPayeeID(), [
         Validators.required,
         Validators.minLength(0),
         Validators.maxLength(64)
       ]),
-      username: new FormControl(this.sessionService.getUsername(), [
-        Validators.required,
-        Validators.minLength(0),
-        Validators.maxLength(64)
-      ]),
-      rememberMe: new FormControl(this.sessionService.getRememberMe()),
+      expCat: new FormControl(this.sessionService.getExpCat()),
+      e_gift: new FormControl(this.sessionService.getEgift()),
+      message: new FormControl(this.sessionService.getMessage()),
+      amount: new FormControl(this.sessionService.getAmount()),
     }, { updateOn: 'blur' })
   }
 
   transfer_money(): void {
     console.log("submit form");
   
-    console.log(this.transferForm.value.username);
-    console.log(this.transferForm.value.password);
-
+    console.log(this.transferForm.value.payeeID);
+    
+    console.log(this.customerService.users_information());
     //Retrieve value from form
-    //this.customerService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe
+    //this.customerService.transfer(this.loginForm.value.username, this.loginForm.value.password).subscribe()
+    this.router.navigate(["/home"]);
   }
 }
 
