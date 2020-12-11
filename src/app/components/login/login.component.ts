@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
     this.customerService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(
       response => {
          console.log("response " + JSON.stringify(response));
-         console.log(response.firstName);
+         console.log(response.custId);
 
         if (response != null) {
           if (this.loginForm.value.rememberMe == true) {
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
             this.sessionService.setRememberMe(false);
           }
           this.sessionService.setIsLogin(true);
-          this.customer.custId = response.custId;
+          this.customer.custId = response.custID;
           this.customer.address = response.address;
           this.customer.age = response.age;
           this.customer.email = response.email;
