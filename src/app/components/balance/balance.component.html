@@ -1,0 +1,29 @@
+<div class="site-wrapper">
+    <section class="balance">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="margin-top: 10%">
+                    <app-navbar></app-navbar>
+                    <h4 class="col-md-12">Welcome ! <span>{{customer.firstName}}</span><span>&nbsp;</span><span>{{customer.lastName}}</span></h4>
+                    <br>
+                    <!-- <ul>
+                        <li *ngFor="let account of accountDetails">
+                          {{account.availableBal}}
+                         </li>
+                    </ul> -->
+                    <table style="border-collapse: collapse; width: 100%;" >
+                        <tbody>
+                        <tr>
+                        <td> <p class="col-md-12"><span style="font-weight:bold;">Account Name: {{accountDetails[1].accountName}}</span><span></span></p></td>
+                        <td> <p class="col-md-12"><span style="font-weight:bold;">Account Number: {{accountDetails[1].accountNumber}}</span><span></span></p></td>
+                        <td> <p class="col-md-12"><span style="font-weight:bold;">Available balance: {{accountDetails[1].availableBal}}</span><span></span></p></td>               
+                        <td> <p class="col-md-12"><span style="font-weight:bold;">Linked: {{accountDetails[1].linked}}</span><span></span></p></td>         
+                    </tr>
+            </tbody>
+            </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+

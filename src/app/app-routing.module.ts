@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { TransferMoneyComponent } from './components/transfer-money/transfer-money.component';
 import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 import { ViewAccountDetailsComponent } from './components/view-account-details/view-account-details.component';
+import { BalanceComponent } from './components/balance/balance.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'transfer-money', component: TransferMoneyComponent },
   { path: 'transactionView', component: TransactionHistoryComponent},
   { path: 'view-account-details', component: ViewAccountDetailsComponent },
+  { path: 'balance', component: BalanceComponent },
 ];
 
 @NgModule({
