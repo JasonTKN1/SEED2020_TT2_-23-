@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { SessionService } from '../../service/session.service';
 import { CustomerService } from '../../service/customer.service';
 
+import { Customer } from '../../class/customer';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +14,7 @@ import { CustomerService } from '../../service/customer.service';
 })
 export class LoginComponent implements OnInit {
 
+  customer: Customer;
   loginForm: any = null;
   errorMessage: string = '';
   loginError: boolean;
@@ -21,7 +24,9 @@ export class LoginComponent implements OnInit {
     public customerService: CustomerService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
-  ) { }
+  ) { 
+    this.customer = new Customer();
+  }
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -50,6 +55,8 @@ export class LoginComponent implements OnInit {
     this.customerService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(
       response => {
          console.log("response " + JSON.stringify(response));
+         console.log(response.custId);
+
         if (response != null) {
           if (this.loginForm.value.rememberMe == true) {
             this.sessionService.setUsername(this.loginForm.value.username);
@@ -61,11 +68,20 @@ export class LoginComponent implements OnInit {
             this.sessionService.setRememberMe(false);
           }
           this.sessionService.setIsLogin(true);
-          this.sessionService.setAccessToken(response);
-          console.log(this.sessionService.getUsername());
-          console.log(this.sessionService.getAccessToken());
-          // this.sessionService.setUserId(response.userId);
-          //console.log(this.sessionService.getUserId());
+          this.customer.custId = response.custID;
+          this.customer.address = response.address;
+          this.customer.age = response.age;
+          this.customer.email = response.email;
+          this.customer.firstName = response.firstName;
+          this.customer.lastName = response.lastName;
+          this.customer.nric = response.nric;
+          this.customer.gender = response.gender;
+          this.customer.phoneNumber = response.phoneNumber;
+
+          console.log("checking if customer is stored " + JSON.stringify(this.customer));
+          this.sessionService.setCustomer(JSON.stringify(this.customer));
+
+
           this.loginError = false;
 
           this.router.navigate(["/home"]);

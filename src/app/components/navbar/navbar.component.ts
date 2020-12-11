@@ -39,4 +39,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(["/login"]);
   }
 
+  viewTransactionHistory(): void {
+    this.router.navigate(["/transactionView"]);
+  }
+
 }

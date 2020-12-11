@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Customer } from '../class/customer';
 
 @Injectable({
 	providedIn: 'root'
@@ -63,6 +64,10 @@ export class SessionService {
 
 	setPassword(password: string): void {
 		sessionStorage.password = password;
+  }
+
+  getCustomer(): string {
+		return sessionStorage.customer;
 	}
 
 	getPayeeID(): string {
@@ -103,4 +108,9 @@ export class SessionService {
 	getMessage(): string {
 		return sessionStorage.message;
 	}
+
+	setCustomer(customer: string): void {
+		sessionStorage.customer = customer;
+  }
+
 }
