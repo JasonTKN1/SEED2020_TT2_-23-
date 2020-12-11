@@ -28,7 +28,18 @@ export class TransactionHistoryComponent implements OnInit {
   this.customer = JSON.parse(this.sessionService.getCustomer());
 
     this.transactionService.showTransactionHistory(this.customer.custId).subscribe(
-      response => {console.log("response " + JSON.stringify(response));
+      response => {
+        console.log("response " + JSON.stringify(response));
+        if (response != null)
+        {
+          this.transactionDetails.amount = response.amount;
+          this.transactionDetails.custID = response.custID;
+          this.transactionDetails.dateTime = response.dateTime;
+          this.transactionDetails.eGift= response.eGift;
+          this.transactionDetails.expensesCat = response.expensesCat;
+          this.transactionDetails.message = response.message;
+          this.transactionDetails.payeeID = response.payeeID;
+        }
     })
   }
 }
