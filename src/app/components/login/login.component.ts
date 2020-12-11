@@ -75,6 +75,7 @@ export class LoginComponent implements OnInit {
           this.customer.firstName = response.firstName;
           this.customer.lastName = response.lastName;
           this.customer.nric = response.nric;
+          this.customer.gender = response.gender;
           this.customer.phoneNumber = response.phoneNumber;
 
           console.log("checking if customer is stored " + JSON.stringify(this.customer));
