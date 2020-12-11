@@ -70,7 +70,47 @@ export class SessionService {
 		return sessionStorage.customer;
 	}
 
+	getPayeeID(): string {
+		return sessionStorage.payeeID;
+	}
+
+	getAmount(): number {
+		return sessionStorage.amount;
+	}
+
+	//getExpCatShop(): string {
+	//	if (sessionStorage.shop == "true") {
+	//		return "shopping";
+	//	}
+	//}
+
+	getExpCatOthers(): string {
+		return sessionStorage.catOthers
+	}
+	getEgift_true(): boolean {
+		if (sessionStorage.egift_true == "true") {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	getEgift_false(): boolean {
+		if (sessionStorage.egift_false == "true") {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	getMessage(): string {
+		return sessionStorage.message;
+	}
+
 	setCustomer(customer: string): void {
 		sessionStorage.customer = customer;
   }
+
 }
